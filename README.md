@@ -1,2 +1,0 @@
-# inkbot
-Final Year Project
