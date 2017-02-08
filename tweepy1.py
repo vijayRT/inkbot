@@ -7,6 +7,7 @@ import tweepy
 import woeid
 import yweather
 import time
+import os
 
 #Configure Tweepy API
 
@@ -25,18 +26,23 @@ tweapi = tweepy.API(auth)
 def get_trends(cou):
 
     client = yweather.Client()
+    filename = cou
+    filepath = os.path.join('trends', filename)
+    thefile = open(filepath, 'w')
+ 
     place_woeid = client.fetch_woeid(cou)
     trends1 = tweapi.trends_place(place_woeid,exclude='hashtags')
     
     data = trends1[0]
     trends = data['trends']
-    print("Trending in " + cou + ":")
     for trend in trends[:10]:
-        print(trend['name'])
-        time.sleep(1)
+        thefile.write("%s\n" % trend['name'])
+        
 
-country_list = ['USA', 'UK', 'India', 'Canada', 'France', 'Australia', 'World']
+        
+country_list = ['USA', 'UK', 'India', 'Canada', 'Australia', 'Chennai']
 for country in country_list:
     get_trends(country)
+    print(country)
     print("\n")
     
