@@ -40,7 +40,7 @@ def get_trends(cou):
         
 
         
-country_list = ['USA', 'UK', 'India', 'Canada', 'Australia', 'Chennai']
+country_list = ['USA', 'UK', 'India', 'Canada', 'Australia']
 for country in country_list:
     get_trends(country)
     print(country)
