@@ -39,11 +39,16 @@ for f in files:
         json_data = json.load(json_file)
         print(f)
         for i in range (0, 10):
-            x = str(i)
-            print(json_data[x]['title'])
-            b0 = json_data[x]['body0']
-            b1 = json_data[x]['body1']
-            b2 = json_data[x]['body2']
-            if(b1 == "")
-            m = simple_max(a, b, c)
-            print(m)
+            try:
+                x = str(i)
+                print(json_data[x]['title'])
+                b0 = json_data[x]['body0']
+                b1 = json_data[x]['body1']
+                b2 = json_data[x]['body2']
+                a = cosine_sim(b0, b1)
+                b = cosine_sim(b1, b2)
+                c = cosine_sim(b0, b2)
+                m = simple_max(a, b, c)
+                print(m)
+            except Exception as e:
+                print(e)
