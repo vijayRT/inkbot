@@ -11,6 +11,10 @@ sys.setdefaultencoding('utf-8')
 #sys.path.append('/home/vijay/.local/lib/python3.5/site-packages')
 import newspaper
 from newspaper import Article
+from newspaper import Config
+
+conf = Config()
+conf.skip_bad_cleaner = True
 
 
 
@@ -45,7 +49,7 @@ for  filename in onlyfiles:
                 for i in range(0,3):
                     try:
                         url = url_list[i]
-                        a = Article(url)
+                        a = Article(url, config=conf)
                         a.download()
                         a.parse()
                         a.text = pattern.sub(' ', a.text)

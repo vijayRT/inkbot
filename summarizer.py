@@ -8,6 +8,13 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+def simple_max(a, b, c):
+    if a>b>c:
+        return 'a'
+    elif b>c:
+        return 'b'
+    else:
+        return 'c'
 
 stemmer = nltk.stem.porter.PorterStemmer()
 remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
@@ -34,7 +41,9 @@ for f in files:
         for i in range (0, 10):
             x = str(i)
             print(json_data[x]['title'])
-            print (cosine_sim(json_data[x]['body0'], json_data[x]['body1']))
-            print (cosine_sim(json_data[x]['body1'], json_data[x]['body2']))
-            print (cosine_sim(json_data[x]['body0'], json_data[x]['body2']))
-            print('\n')
+            b0 = json_data[x]['body0']
+            b1 = json_data[x]['body1']
+            b2 = json_data[x]['body2']
+            if(b1 == "")
+            m = simple_max(a, b, c)
+            print(m)
