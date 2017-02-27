@@ -37,7 +37,7 @@ for  filename in onlyfiles:
                 for i in range(0,3):
                     try:
                         url = gnp.get_google_news_query(trend)['stories'][i]['link']
-                        print(url)
+                        #print(url)
                         url_list.append(url)
                     except Exception as e:
                         exc_type, exc_obj, exc_tb = sys.exc_info()

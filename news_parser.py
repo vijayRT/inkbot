@@ -44,7 +44,6 @@ for  filename in onlyfiles:
             k = 0
             for trend in trends:
                 url_list = u[k]
-                print(trend)
                 art_body = ['', '', '']
                 for i in range(0,3):
                     try:
@@ -54,12 +53,12 @@ for  filename in onlyfiles:
                         a.parse()
                         a.text = pattern.sub(' ', a.text)
                         art_body[i] = a.text
-                        print(url + "\n")
                     except Exception as e:
                         print(str(e))
                         i -= 1
                 art_json = {
-                'title': trend,
+                'trend': trend,
+                'title': a.title,
                 'body0': art_body[0],
                 'body1': art_body[1],
                 'body2': art_body[2]
