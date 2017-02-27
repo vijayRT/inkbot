@@ -51,7 +51,7 @@ for  filename in onlyfiles:
                         a = Article(url, config=conf)
                         a.download()
                         a.parse()
-                        a.text = pattern.sub(' ', a.text)
+                        #a.text = pattern.sub(' ', a.text)
                         art_body[i] = a.text
                     except Exception as e:
                         print(str(e))
