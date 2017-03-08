@@ -59,9 +59,12 @@ for  filename in onlyfiles:
                 art_json = {
                 'trend': trend,
                 'title': a.title,
+                'image': a.top_image,
                 'body0': art_body[0],
                 'body1': art_body[1],
-                'body2': art_body[2]
+                'body2': art_body[2],
+                'summary': '',
+                'category': ''
                     }
                 json_all[k] = art_json
                 k+=1

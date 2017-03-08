@@ -1,0 +1,153 @@
+.btn-group .button {
+    background-color: #000000; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration:none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: right 
+    
+}
+
+.btn-group .button:hover {
+    background-color: #b32d00;
+}
+div.article{
+    width: 60%;
+
+}
+div.container{
+    width: 100%;
+
+}
+h1 {
+	font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	float: left;
+	
+
+}
+
+
+p.newsbody
+{font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 150%;
+	margin-right: 4em;
+	margin-left: 100px;
+	text-align: justify;
+	}
+
+div.newstitle h3{
+
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	margin-top:4em;
+	margin-left:4em;
+	font-style:italic;	
+}
+
+header {
+    padding-bottom: 5em;
+    padding-left:2em;
+    padding-top:2em;
+    color: white;
+    background-color: black;
+    clear: left;  
+    line-height:10px;
+    
+}
+
+#footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:100px;
+}
+
+#footerContainer {
+    position:relative;
+    width:100%;
+    height:100px;
+}
+
+#imginthefooter {       
+    background: url(https://avatars3.githubusercontent.com/u/9919?v=3&s=280) no-repeat;
+    width:100px;
+    height:300px;
+    top: -108px;  /* Position element */
+    right: 150px; /* Position element */ 
+    position: absolute;
+}​​​​​​​​​
+
+
+article {
+    margin-left: 100px;
+    padding: 1em;
+    display:inline-block;
+
+}
+
+div.newsticker
+{
+width: 40%
+float: right;
+margin-right: 10px;
+top: 0; 
+margin-top: 80px;
+position: sticky;
+}
+
+
+#ticker {
+  width:400px; height:800px; overflow:auto; border:1px solid #aaaaaa;
+  float: right;
+}
+#ticker dt {
+  font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400; padding:0 10px 5px 10px;
+  color:#ffffff;
+  background-color:#000000; padding-top:10px; border:1px solid #ffffff;
+  border-bottom:none; border-right:none;
+}
+#ticker dd {
+  font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400; padding:20px 20px 20px 20px;
+  color:#000000;
+  border-bottom:1px solid #aaaaaa; background-color:#ffffff ;
+  border-left:1px solid #ffffff;
+}
+#ticker dd:hover{
+  margin-left:0; font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	color: #ffffff;	
+	padding:20px 20px 20px 20px;
+  border-bottom:1px solid #ffffff; background-color:#b32d00 ;
+  border-left:1px solid #ffffff;
+}
+#ticker dd.last { border-bottom:1px solid #ffffff;
+}

@@ -12,4 +12,5 @@ import news_parser
 
 t1 = time.time()
 tot = t1 - t0
-print('Total time taken: ' + tot)
+print('Total time taken: ')
+print(tot)
