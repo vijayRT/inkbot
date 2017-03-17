@@ -6,9 +6,10 @@ import json
 from os import listdir
 from os.path import isfile, join
 import sys
+import time
 
 
-
+t0 = time.time()
 
 #country_list =  ['Australia', 'Canada', 'India', 'USA', 'UK']
 file_list = [f for f in listdir('articles')]
@@ -53,7 +54,7 @@ for f in file_list:
 <div class="article">
   
 
-	<div class="newstitle"><h3>
+	<div class="newstitle"><h2>
                 
                 """
 
@@ -69,7 +70,7 @@ for f in file_list:
 
                 
                 html_str = """
-                </h3></div><br>
+                </h2></div><br>
                 
    	<img src=\"
     """
@@ -86,7 +87,7 @@ for f in file_list:
 
   
                 html_file.write(html_str.encode('utf8'))
-                html_str = json_content[x]['body1']
+                html_str = json_content[x]['summary']
                 html_file.write(html_str.encode('utf8'))
 
 
@@ -123,3 +124,6 @@ for f in file_list:
             
             except Exception as e:
                 print(e)
+
+t1 = time.time()
+print(t1-t0)

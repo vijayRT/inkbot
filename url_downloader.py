@@ -3,6 +3,7 @@ import sys
 import json
 import re
 import os
+import time
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -15,7 +16,7 @@ sys.setdefaultencoding('utf-8')
 from os import listdir
 from os.path import isfile, join
 
-
+t0 = time.time()
 pattern=re.compile("[^\w']")
 onlyfiles = [f for f in listdir('trends')]
 
@@ -46,3 +47,6 @@ for  filename in onlyfiles:
                         i -= 1
                 trend_list.append(url_list)
             urlfile.write(str(trend_list))
+
+t1 = time.time()
+print(t1 - t0)

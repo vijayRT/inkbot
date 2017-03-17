@@ -3,11 +3,12 @@ import sys
 import json
 import re
 import pickle
+import time
 
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
+t0 = time.time()
 #sys.path.append('/home/vijay/.local/lib/python3.5/site-packages')
 import newspaper
 from newspaper import Article
@@ -74,3 +75,5 @@ for  filename in onlyfiles:
             
                 
             
+t1 = time.time()
+print(t1-t0)

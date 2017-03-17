@@ -15,6 +15,8 @@ from heapq import nlargest
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+t0 = time.time()
+
 def simple_max(a, b, c):
     if a>b>c:
         return 'a'
@@ -99,11 +101,6 @@ class FrequencySummarizer:
 
 
 
-
-
-
-
-
 #main execution
 fs = FrequencySummarizer()
 files = [f for f in listdir('articles')]
@@ -129,12 +126,18 @@ for f in files:
                     tts = b1 + b2
                 else:
                     tts = b0 + b2
+                summ_str = ''
                 for s in fs.summarize(tts, 5):
-                    print(s)
+                    summ_str += str(s)
+                    summ_str += str('\n')
+                print(summ_str)
+                json_data[x]['summary'] = summ_str
                 print("\n\n")
-                time.sleep(5)
             except Exception as e:
                 print(e)
+    with open(filepath, 'w') as json_file:
+        json.dump(json_data, json_file, indent = 4) 
             
-                
+t1 = time.time()
+print(t1 - t0)
                 

@@ -10,6 +10,7 @@ import time
 import os
 
 #Configure Tweepy API
+t0 = time.time()
 
 consumer_key = 'Osyy0PSrhMRpnIWxjBLzLJeKR'
 consumer_secret = 'AYY7Qb48yl2gk4GacSmnWTrv6keikGpMAsPZaamKIRNoWYqzKI'
@@ -46,3 +47,5 @@ for country in country_list:
     print(country)
     print("\n")
     
+t1 = time.time()
+print(t1 - t0)
