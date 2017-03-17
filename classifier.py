@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
 from textblob.classifiers import NaiveBayesClassifier
+
 from textblob import Blobber
 from textblob import TextBlob
 import nltk
@@ -36,13 +38,12 @@ for dc in dataset_category:
     for dataset_file in dataset_contents:
         data_path = join('bbc', dc, dataset_file)
         dataset_file_content = open(data_path, 'r')
-        dataset_text = dataset_file_content.read().decode('ascii', errors="ignore")
+        dataset_text = dataset_file_content.read()
         dataset_text = re.sub(r"\n", " ", dataset_text)
-        dataset_train = [dataset_text, dc]
+        dataset_train = (dataset_text, dc)
         dataset_file_content.close()
         dataset.append(dataset_train)
-    
-        
+       
 try:
     t0 = time.time()
     cl = nltk.NaiveBayesClassifier.train(dataset)
@@ -58,5 +59,7 @@ The company might soon launch KEYone in India, as one Indian e-tailer recently l
 
     print(cl.classify(test_string))
 except Exception as e:
-    print(e)
+    exc_type, exc_obj, exc_tb = sys.exc_info()
+    fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+    print(e, exc_type, fname, exc_tb.tb_lineno)
 
