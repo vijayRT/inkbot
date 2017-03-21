@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from textblob.classifiers import NaiveBayesClassifier
-
+from textblob.classifiers import NLTKClassifier
 from textblob import Blobber
 from textblob import TextBlob
 import nltk
@@ -13,34 +12,31 @@ import time
 import unicodedata
 import re
 import pickle
-
-import sys  
-
-reload(sys)  
-sys.setdefaultencoding('utf8')
-import pdb
+import math
+import sys
+import codecs
 
 
-def whatisthis(s):
-    if isinstance(s, str):
-        print ("ordinary string")
-    elif isinstance(s, unicode):
-        print ("unicode string")
-    else:
-        print ("not a string")
+
+
+def to_alphanum(s):
+    import re
+    pattern  =  re.compile('[\W_]+')
+    return pattern.sub('', s)
 
 
 dataset_category = [x for x in os.listdir('bbc')]
 dataset = []
 
+print("Preparing dataset")
 for dc in dataset_category:
     category_path  = join('bbc', dc)
     dataset_contents = [f for f in os.listdir(category_path)]
-    for dataset_file in dataset_contents:
+    for dataset_file in dataset_contents[:50]:
         data_path = join('bbc', dc, dataset_file)
-        dataset_file_content = open(data_path, 'r')
+        dataset_file_content = codecs.open(data_path, 'r',encoding='utf-8', errors='ignore')
         dataset_text = dataset_file_content.read()
-        dataset_text = re.sub(r"\n", " ", dataset_text)
+        to_alphanum(dataset_text)
         dataset_train = (dataset_text, dc)
         dataset_file_content.close()
         dataset.append(dataset_train)
@@ -48,7 +44,7 @@ for dc in dataset_category:
 try:
     print('Training Classifier')
     t0 = time.time()
-    cl = nltk.NaiveBayesClassifier.train(dataset)
+    cl = NLTKClassifier(dataset)
     f = open('my_classifier.pickle', 'wb')
     pickle.dump(cl, f)
     f.close()

@@ -20,7 +20,7 @@ lxml==3.3.5
 MarkupSafe==0.23
 newspaper==0.0.9.8
 newspaper3k==0.1.9
-nltk==2.0.5
+nltk==3.2.2
 numpy==1.12.0
 oauthlib==2.0.1
 olefile==0.44
@@ -30,14 +30,15 @@ Pillow==2.5.1
 poyo==0.4.0
 pyparsing==2.1.10
 python-dateutil==2.4.0
+python-twitter==3.2.1
 PyYAML==3.11
 requests==2.3.0
 requests-oauthlib==0.8.0
 scikit-learn==0.18.1
 scipy==0.18.1
-six==1.7.3
+six==1.10.0
 sklearn==0.0
+textblob==0.12.0
 tldextract==1.5.1
-twitter==1.17.1
 twython==3.4.0
 whichcraft==0.4.0

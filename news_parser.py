@@ -4,9 +4,8 @@ import json
 import re
 import pickle
 import time
-import urllib2
-import simplejson
-import cStringIO
+
+
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -19,8 +18,6 @@ from newspaper import Config
 conf = Config()
 conf.skip_bad_cleaner = True
 
-from google import google, images
-options = images.ImageOptions()
 
 
 
@@ -57,7 +54,6 @@ for  filename in onlyfiles:
                         a = Article(url, config=conf)
                         a.download()
                         a.parse()
-                        image_result = google.search_images(trend, options)['link']
                         #a.text = pattern.sub(' ', a.text)
                         art_body[i] = a.text
                     except Exception as e:
@@ -66,12 +62,13 @@ for  filename in onlyfiles:
                 art_json = {
                 'trend': trend,
                 'title': a.title,
-                'image': image_result,
+                'image': a.top_image,
                 'body0': art_body[0],
                 'body1': art_body[1],
                 'body2': art_body[2],
                 'summary': '',
-                'category': ''
+                'category': '',
+                 'tweet': ''   
                     }
                 json_all[k] = art_json
                 k+=1

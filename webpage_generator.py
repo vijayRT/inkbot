@@ -13,7 +13,7 @@ import shutil
 
 filelist = [ f for f in os.listdir("html_files") if f.endswith(".html") ]
 for f in filelist:
-    os.remove(f)
+    os.remove(join('html_files', f))
     
 t0 = time.time()
 
@@ -85,21 +85,21 @@ for f in file_list:
                 html_file.write(html_str)
                 html_str = """
                 \" width="75%" height="75%"><br>
-  <p class="newsbody"><b><i>Hudson, Texas:</i></b>
+  <p class="newsbody"><b><i>"""
+                html_file.write(html_str.encode('utf8'))
+                html_str = str(f)
+                html_file.write(html_str.encode('utf8'))
+                html_str = """:</i></b>
   """
 
-
-
-
-  
                 html_file.write(html_str.encode('utf8'))
                 html_str = json_content[x]['summary']
                 html_file.write(html_str.encode('utf8'))
-
-
-
+                html_str = """</p>"""
+                html_str = json_content[x]['tweet']
+                html_file.write(html_str.encode('utf8'))
+                html_str = """
                 
-                html_str = """</p>
 </div>
 
 
