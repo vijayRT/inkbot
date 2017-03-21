@@ -3,12 +3,18 @@
 from __future__ import unicode_literals
 
 import json
+import os
 from os import listdir
 from os.path import isfile, join
 import sys
 import time
 
+import shutil
 
+filelist = [ f for f in os.listdir("html_files") if f.endswith(".html") ]
+for f in filelist:
+    os.remove(f)
+    
 t0 = time.time()
 
 #country_list =  ['Australia', 'Canada', 'India', 'USA', 'UK']
@@ -123,7 +129,7 @@ for f in file_list:
                 html_file.close()
             
             except Exception as e:
-                print(e)
+                print('')
 
 t1 = time.time()
 print(t1-t0)

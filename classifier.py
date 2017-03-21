@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
 from textblob.classifiers import NaiveBayesClassifier
+
 from textblob import Blobber
 from textblob import TextBlob
 import nltk
@@ -37,13 +39,12 @@ for dc in dataset_category:
     for dataset_file in dataset_contents:
         data_path = join('bbc', dc, dataset_file)
         dataset_file_content = open(data_path, 'r')
-        dataset_text = dataset_file_content.read().decode('ascii', errors="ignore")
+        dataset_text = dataset_file_content.read()
         dataset_text = re.sub(r"\n", " ", dataset_text)
         dataset_train = (dataset_text, dc)
         dataset_file_content.close()
         dataset.append(dataset_train)
-    
-        
+       
 try:
     print('Training Classifier')
     t0 = time.time()
@@ -54,5 +55,7 @@ try:
     t1 = time.time()
     print(t1 - t0)
 except Exception as e:
-    print(e)
+    exc_type, exc_obj, exc_tb = sys.exc_info()
+    fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+    print(e, exc_type, fname, exc_tb.tb_lineno)
 
