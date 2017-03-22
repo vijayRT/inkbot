@@ -70,6 +70,7 @@ for  filename in onlyfiles:
                 'category': '',
                  'tweet': ''   
                     }
+                print(json.dumps(art_json, indent=4))
                 json_all[k] = art_json
                 k+=1
                 

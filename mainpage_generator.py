@@ -1,7 +1,21 @@
+from __future__ import unicode_literals
 
+import json
+import os
+from os import listdir
+from os.path import isfile, join
+import sys
+import time
+import random
+from bs4 import BeautifulSoup
+
+import shutil
+index_file = open(join('html_files', 'index.html'), 'w')
+
+html_str = """
 <!DOCTYPE html>
 <html>
-<head><title>City’s Neeraj blazes Aamby Valley track with sub-10s run</title>
+<head>
 <meta charset="utf-8">
 <script id="twitter-wjs" type="text/javascript" async defer src="http://platform.twitter.com/widgets.js"></script>
 <link rel= "stylesheet" type ="text/css" href="inkbot.css">
@@ -19,14 +33,14 @@
   <button class="button">Home</button>
 
 </div></header>
-  
-<div class="article">
-  
 
-	<div class="newstitle"><h2>
-                
-                City’s Neeraj blazes Aamby Valley track with sub-10s run
-                </h2></div><br>
-                
-   	<img src="
+"""
+
+for i in range(0, 5):
+    file_chosen = open(join('html_files', random.choice(os.listdir('html_files'))), 'r')
+    soup = BeautifulSoup(file_chosen)
+    title = soup.title.string
+    print(title)
+
+
     

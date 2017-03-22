@@ -11,6 +11,8 @@ import time
 
 import shutil
 
+
+
 filelist = [ f for f in os.listdir("html_files") if f.endswith(".html") ]
 for f in filelist:
     os.remove(join('html_files', f))
@@ -29,7 +31,7 @@ for f in file_list:
                 html_name = json_content[x]['trend'] + '.html'
                 html_file_name = join('html_files', html_name)
                 html_file = open(html_file_name, 'w')
-
+                
 
 
 
@@ -38,7 +40,12 @@ for f in file_list:
                 html_str = """
 <!DOCTYPE html>
 <html>
-<head>
+<head><title>"""
+                html_file.write(html_str.encode('utf8'))
+                html_str = json_content[x]['title']
+                html_file.write(html_str.encode('utf8'))
+
+                html_str = """</title>
 <meta charset="utf-8">
 <script id="twitter-wjs" type="text/javascript" async defer src="http://platform.twitter.com/widgets.js"></script>
 <link rel= "stylesheet" type ="text/css" href="inkbot.css">

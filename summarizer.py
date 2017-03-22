@@ -134,7 +134,7 @@ for f in files:
                 json_data[x]['summary'] = summ_str
                 print("\n\n")
             except Exception as e:
-                print(e)
+                print(None)
     with open(filepath, 'w') as json_file:
         json.dump(json_data, json_file, indent = 4) 
             

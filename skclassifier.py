@@ -60,6 +60,7 @@ classifier.fit(X_train, Y)
 X_test = []
 
 files = [f for f in listdir('articles')]
+print("\n\nPerforming Classification\n")
 for f in files:
     filepath = join('articles', f)
     with open(filepath, 'r') as json_file:
@@ -67,14 +68,14 @@ for f in files:
         for i in range (0, 10):
             try:
                 n = str(i)
-                X_test = [json_data[n]['summary']]
+                X_test = [json_data[n]['body0']]
                 target_names = [x for x in os.listdir('bbc')]
                 predicted = classifier.predict(X_test)
                 all_labels = mlb.inverse_transform(predicted)
                 cate = [x[0] for x in all_labels]
-                print(json_data[n]['trend'], cate)
+                print(json_data[n]['trend'], cate[0])
                 #json_data[n]['category'] = all_labels[0]
             except Exception as e:
-                print(e)
+                print(json_data[n]['trend'],'Other')
     with open(filepath, 'w') as json_file:
         json.dump(json_data, json_file, indent = 4) 
