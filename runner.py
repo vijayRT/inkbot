@@ -31,12 +31,21 @@ import tweet_retriever
 t5 = time.time()
 print(t5 - t4)
 
-print("\n\nGenerating webpages...\n")
-import webpage_generator
+print("\n\nCategorizing Articles\n\n")
+import skclassifier
 
 t6 = time.time()
 print(t6 - t5)
 
-tot = t6 - t0
+
+print("\n\nGenerating webpages...\n")
+import webpage_generator
+import mainpage_generator
+
+t7 = time.time()
+print(t7-t6)
+
+
+tot = t7 - t0
 print('Total time taken: ')
 print(tot)

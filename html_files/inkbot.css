@@ -24,6 +24,11 @@ div.container{
     width: 100%;
 
 }
+
+a {
+  text-decoration: none;
+  color:#000000; 
+}
 h1 {
 	font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 	font-size: 32px;
@@ -104,8 +109,11 @@ img
 }
 
 #ticker {
-  width:400px; height:800px; overflow:auto; border:1px solid #aaaaaa;
+  width:400px; overflow:auto; border:1px solid #aaaaaa;
   float: right;
+  position: fixed; 
+  margin: -45px 0 0 900px; 
+
 }
 #ticker dt {
   font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
@@ -125,8 +133,11 @@ img
 	font-weight: 400; padding:20px 20px 20px 20px;
   color:#000000;
   border-bottom:1px solid #aaaaaa; background-color:#ffffff ;
+	text-decoration:none;
   border-left:1px solid #ffffff;
 }
+
+
 #ticker dd:hover{
   margin-left:0; font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 	font-size: 20px;

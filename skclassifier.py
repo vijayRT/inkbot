@@ -73,9 +73,12 @@ for f in files:
                 predicted = classifier.predict(X_test)
                 all_labels = mlb.inverse_transform(predicted)
                 cate = [x[0] for x in all_labels]
-                print(json_data[n]['trend'], cate[0])
-                #json_data[n]['category'] = all_labels[0]
+                json_data[n]['category'] = cate[0]
+                print(json_data[n]['category'])
             except Exception as e:
-                print(json_data[n]['trend'],'Other')
+                try:
+                    json_data[n]['trend'] = 'Other'
+                except Exception as y:
+                    print(" ")
     with open(filepath, 'w') as json_file:
         json.dump(json_data, json_file, indent = 4) 

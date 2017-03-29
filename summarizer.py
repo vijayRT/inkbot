@@ -127,7 +127,7 @@ for f in files:
                 else:
                     tts = b0 + b2
                 summ_str = ''
-                for s in fs.summarize(tts, 5):
+                for s in fs.summarize(tts, 8):
                     summ_str += str(s)
                     summ_str += str('\n')
                 print(summ_str)

@@ -1,3 +1,5 @@
+
+
 #tweepy1.py - To test trend obtaining
 
 import sys
@@ -8,6 +10,9 @@ import woeid
 import yweather
 import time
 import os
+import sys
+
+reload(sys)
 
 #Configure Tweepy API
 t0 = time.time()
@@ -26,19 +31,24 @@ tweapi = tweepy.API(auth)
 
 def get_trends(cou):
 
-    client = yweather.Client()
-    filename = cou
-    filepath = os.path.join('trends', filename)
-    thefile = open(filepath, 'w')
- 
-    place_woeid = client.fetch_woeid(cou)
-    trends1 = tweapi.trends_place(place_woeid,exclude='hashtags')
-    
-    data = trends1[0]
-    trends = data['trends']
-    for trend in trends[:10]:
-        thefile.write("%s\n" % trend['name'])
+    try:
+        client = yweather.Client()
+        filename = cou
+        filepath = os.path.join('trends', filename)
+        thefile = open(filepath, 'w')
+     
+        place_woeid = client.fetch_woeid(cou)
+        trends1 = tweapi.trends_place(place_woeid,exclude='hashtags')
         
+        data = trends1[0]
+        trends = data['trends']
+        
+
+    except Exception as e:
+        print('')
+        
+    for trend in trends[:10]:
+            thefile.write(("%s\n" % trend['name']).encode("utf8"))
 
         
 country_list = ['USA', 'UK', 'India', 'Canada', 'Australia']
