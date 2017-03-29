@@ -20,10 +20,12 @@ html_str = """
 <!DOCTYPE html>
 <html>
 <head>
+<title>Inkbot: Interestingly Inhuman</title>
 <meta charset="utf-8">
 <script id="twitter-wjs" type="text/javascript" async defer src="http://platform.twitter.com/widgets.js"></script>
 <link rel= "stylesheet" type ="text/css" href="style.css">
 <link rel="shortcut icon" href="inkpot.ico" type="image/x-icon">
+</head>
 <body>
 
 
@@ -33,10 +35,11 @@ html_str = """
    <h1>INKBOT</h1>
 <div class="btn-group">
   <a href = "misc.html"><button class="button">Miscellaneous</button></a>
-  <a href = "ent.html"><button class="button">Entertainment</button></a>
-  <a href = "pol.html"><button class="button">Politics</button></a>
-  <a href = "sport.html"><button class="button">Sports</button></a>
-  <a href = "index.html"><button class="button">Home</button></a>
+      <a href = "tech.html"><button class="button">Technology</button></a>
+      <a href = "ent.html"><button class="button">Entertainment</button></a>
+      <a href = "sport.html"><button class="button">Sports</button></a>
+      <a href = "pol.html"><button class="button">Politics</button></a>
+      <a href = "index.html"><button class="button">Home</button></a>
 
 </div></header>
 
@@ -46,6 +49,7 @@ index_file.write(html_str.encode('utf8'))
 randomfiles = []
 i = 0
 randomfiles = [x for x in os.listdir('html_files') if x.endswith(".html")]
+randomfiles.remove('index.html')
 random.shuffle(randomfiles)
 while i <= 5:
     file_chosen = open(join('html_files', randomfiles[i]), 'r')
@@ -147,6 +151,7 @@ print('mainpage written')
 
 
 filelist = [ f for f in os.listdir("html_files") if f.endswith(".html")]
+filelist.remove('index.html')
 for f in filelist:
     if not str(f) == "index.html":
         with open(join('html_files', f), 'a') as hf:

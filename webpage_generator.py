@@ -50,6 +50,9 @@ for f in file_list:
 <script id="twitter-wjs" type="text/javascript" async defer src="http://platform.twitter.com/widgets.js"></script>
 <link rel= "stylesheet" type ="text/css" href="inkbot.css">
 <link rel="shortcut icon" href="inkpot.ico" type="image/x-icon">
+</head>
+
+
 <body>
 
 
@@ -59,10 +62,11 @@ for f in file_list:
    <h1>INKBOT</h1>
 <div class="btn-group">
   <a href = "misc.html"><button class="button">Miscellaneous</button></a>
-  <a href = "ent.html"><button class="button">Entertainment</button></a>
-  <a href = "pol.html"><button class="button">Politics</button></a>
-  <a href = "sport.html"><button class="button">Sports</button></a>
-  <a href = "index.html"><button class="button">Home</button></a>
+      <a href = "tech.html"><button class="button">Technology</button></a>
+      <a href = "ent.html"><button class="button">Entertainment</button></a>
+      <a href = "sport.html"><button class="button">Sports</button></a>
+      <a href = "pol.html"><button class="button">Politics</button></a>
+      <a href = "index.html"><button class="button">Home</button></a>
 
 </div></header>
   
