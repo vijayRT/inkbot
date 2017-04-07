@@ -56,7 +56,6 @@ classifier = Pipeline([
     ('clf', OneVsRestClassifier(LinearSVC()))])
 
 classifier.fit(X_train, Y)
-
 X_test = []
 
 files = [f for f in listdir('articles')]
@@ -77,7 +76,7 @@ for f in files:
                 print(json_data[n]['category'])
             except Exception as e:
                 try:
-                    json_data[n]['trend'] = 'Other'
+                    json_data[n]['category'] = 'Other'
                 except Exception as y:
                     print(" ")
     with open(filepath, 'w') as json_file:

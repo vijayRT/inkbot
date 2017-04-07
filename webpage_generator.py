@@ -62,7 +62,7 @@ for f in file_list:
    <h1>INKBOT</h1>
 <div class="btn-group">
   <a href = "misc.html"><button class="button">Miscellaneous</button></a>
-      <a href = "tech.html"><button class="button">Technology</button></a>
+      <a href = "bus.html"><button class="button">Business</button></a>
       <a href = "ent.html"><button class="button">Entertainment</button></a>
       <a href = "sport.html"><button class="button">Sports</button></a>
       <a href = "pol.html"><button class="button">Politics</button></a>
@@ -106,12 +106,22 @@ for f in file_list:
   """
 
                 html_file.write(html_str.encode('utf8'))
-                html_str = json_content[x]['summary']
-                html_file.write(html_str.encode('utf8'))
+                line_list = [line for line in json_content[x]['summary'].split('.')]
+                print(html_file_name, len(line_list))
+                for line in line_list[:len(line_list)/2]:
+                    html_str = line
+                    html_file.write(html_str.encode('utf8'))
                 html_str = """</p>"""
+                html_file.write(html_str.encode('utf8'))
                 html_str = json_content[x]['tweet']
                 html_file.write(html_str.encode('utf8'))
-                
+                html_str = """<p class="newsbody">"""
+                html_file.write(html_str.encode('utf8'))
+                for line in line_list[len(line_list)/2:]:
+                    html_str = line
+                    html_file.write(html_str.encode('utf8'))
+                html_str = """</p>"""
+                html_file.write(html_str.encode('utf8'))
                 html_file.close()
             
             except Exception as e:

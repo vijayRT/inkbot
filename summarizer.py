@@ -108,7 +108,6 @@ for f in files:
     filepath = join('articles', f)
     with open(filepath, 'r') as json_file:
         json_data = json.load(json_file)
-        print(f)
         for i in range (0, 10):
             try:
                 x = str(i)
@@ -134,7 +133,7 @@ for f in files:
                 json_data[x]['summary'] = summ_str
                 print("\n\n")
             except Exception as e:
-                print(None)
+                print(e)
     with open(filepath, 'w') as json_file:
         json.dump(json_data, json_file, indent = 4) 
             

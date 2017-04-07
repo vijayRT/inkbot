@@ -41,6 +41,7 @@ print(t6 - t5)
 print("\n\nGenerating webpages...\n")
 import webpage_generator
 import mainpage_generator
+import category_generator   
 
 t7 = time.time()
 print(t7-t6)

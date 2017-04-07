@@ -48,6 +48,7 @@ for  filename in onlyfiles:
             for trend in trends:
                 url_list = u[k]
                 art_body = ['', '', '']
+                art_title = ['', '', '']
                 for i in range(0,3):
                     try:
                         url = url_list[i]
@@ -55,13 +56,14 @@ for  filename in onlyfiles:
                         a.download()
                         a.parse()
                         #a.text = pattern.sub(' ', a.text)
+                        art_title[i]  = a.title
                         art_body[i] = a.text
                     except Exception as e:
                         print(str(e))
                         i -= 1
                 art_json = {
                 'trend': trend,
-                'title': a.title,
+                'title': art_title[0],
                 'image': a.top_image,
                 'body0': art_body[0],
                 'body1': art_body[1],
@@ -70,7 +72,6 @@ for  filename in onlyfiles:
                 'category': '',
                  'tweet': ''   
                     }
-                print(json.dumps(art_json, indent=4))
                 json_all[k] = art_json
                 k+=1
                 
